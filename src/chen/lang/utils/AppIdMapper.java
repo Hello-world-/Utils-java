@@ -3,8 +3,12 @@ package chen.lang.utils;
 import java.util.Random;
 import java.util.Stack;
 
+
 /**
- * Created with IntelliJ IDEA. User: srp Date: 14-3-20 Time: ä¸å4:52
+ * 字符串和Long一一匹配和转换
+ * 
+ * @author Lang
+ *
  */
 public class AppIdMapper {
 	private static char[][] mapper = {

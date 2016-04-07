@@ -10,6 +10,12 @@ import java.util.Random;
 
 import org.apache.commons.codec.binary.Hex;
 
+/**
+ * SHA1 签名相关操作
+ * 
+ * @author Lang
+ *
+ */
 public class Signature {
 
 	public static void main(String[] args) {
