@@ -25,11 +25,18 @@ public class Signature {
 		System.out.println(md5);
 	}
 
+	/**
+	 * hash
+	 * 
+	 * @param inStr 内容
+	 * @param Algorithm 算法名  SHA-1 MD5
+	 * @return
+	 */
 	public static String Hash(String inStr, String Algorithm) {
 		MessageDigest md = null;
 		String outStr = null;
 		try {
-			md = MessageDigest.getInstance(Algorithm); // SHA-1 MD5
+			md = MessageDigest.getInstance(Algorithm); 
 			byte[] digest = md.digest(inStr.getBytes("utf-8"));
 			outStr = Hex.encodeHexString(digest);
 		} catch (Exception nsae) {
