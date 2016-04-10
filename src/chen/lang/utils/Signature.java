@@ -8,8 +8,6 @@ import org.apache.commons.codec.binary.Hex;
 /**
  * SHA1/md5 签名<br>
  * secret + Nonce + Timestamp
- * 
- * @author Lang
  *
  */
 public class Signature {

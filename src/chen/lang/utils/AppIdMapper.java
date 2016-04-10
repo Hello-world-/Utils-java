@@ -1,13 +1,9 @@
 package chen.lang.utils;
 
-import java.util.Random;
 import java.util.Stack;
-
 
 /**
  * 字符串和Long一一匹配和转换
- * 
- * @author Lang
  *
  */
 public class AppIdMapper {
@@ -172,52 +168,10 @@ public class AppIdMapper {
 
 	}
 
-	/**
-	 * ä»¥ä¸çå½æ°é½æ¯ç»å®ç¨ç
-	 *
-	 * @param args
-	 */
-	@SuppressWarnings("unused")
-	private static void generateMapper(String[] args) {
-		System.out.println("{");
-		for (int i = 0; i < LENGTH; i++) {
-			String[] characterList = "0123456789abcdefghijklmnopqrstuvwxyz".split("");
-			rearange(characterList);
-			println(characterList);
-		}
-		System.out.println("}");
-
-		System.out.println(mapper.length + " " + mapper[0].length);
-	}
-
-	private static void println(String[] characterList) {
-		System.out.print("{");
-		for (int i = 1; i < characterList.length; i++) {
-			System.out.print("'" + characterList[i] + "'");
-			if (i != characterList.length - 1) {
-				System.out.print(",");
-			}
-		}
-		System.out.println("},");
-	}
-
-	private static void rearange(String[] characterList) {
-		Random rd = new Random();
-		for (int i = characterList.length - 1; i > 1; i--) {
-			swap(characterList, 1 + rd.nextInt(i - 1), i);
-		}
-	}
-
-	private static void swap(String[] characterList, int i, int i1) {
-		String tmp = characterList[i];
-		characterList[i] = characterList[i1];
-		characterList[i1] = tmp;
-	}
-
 	public static void main(String[] args) {
 
 		try {
-			// System.out.println(long2String(365386L));
+			System.out.println(long2String(365386L));
 			System.out.println(string2long("sfci50a7cz12i"));
 		} catch (Exception e) {
 			e.printStackTrace();
