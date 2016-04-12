@@ -6,7 +6,7 @@ import java.util.Stack;
  * 字符串和Long一一匹配和转换
  *
  */
-public class AppIdMapper {
+public class LongStrMapper {
 	private static char[][] mapper = {
 			{ '6', 'p', 'e', '5', 'b', 'm', 'o', '0', 'd', '3', 'l', '1', 'r', 'k', 'c', 'q', 'x', 'y', 'g', 'a', 'z',
 					'u', 'n', '7', 'j', '8', 's', '9', '4', 'v', 'i', 'h', '2', 'f', 'w', 't' },
@@ -85,11 +85,11 @@ public class AppIdMapper {
 
 	private static final int LENGTH = 36;
 
-	public static String long2String(long appId) throws Exception {
-		if (appId < 0) {
-			throw new Exception("appId is negative!");
+	public static String long2String(long longVal) throws Exception {
+		if (longVal < 0) {
+			throw new Exception("longVal is negative!");
 		}
-		int[] num = _10_to_62(Long.MAX_VALUE - appId);
+		int[] num = _10_to_62(Long.MAX_VALUE - longVal);
 		StringBuffer buffer = new StringBuffer();
 		int index = getIndexByInt(num);
 
@@ -103,24 +103,24 @@ public class AppIdMapper {
 		return buffer.toString();
 	}
 
-	public static long string2long(String appId) throws Exception {
-		if (appId == null) {
-			throw new Exception("must has a appId");
+	public static long string2long(String strVal) throws Exception {
+		if (strVal == null) {
+			throw new Exception("must has a strVal");
 		}
-		int index = getNormalIndexByCharactor(appId.charAt(appId.length() - 1));
+		int index = getNormalIndexByCharactor(strVal.charAt(strVal.length() - 1));
 		long num = 0;
-		for (int i = 0; i < appId.length() - 1; i++) {
-			num = num * LENGTH + getIndex(appId.charAt(i), index);
+		for (int i = 0; i < strVal.length() - 1; i++) {
+			num = num * LENGTH + getIndex(strVal.charAt(i), index);
 		}
 		num = num * LENGTH + index;
 
 		num = Long.MAX_VALUE - num;
 
-		if (!appId.equals(AppIdMapper.long2String(num))) {// ä¸åçstrå¯ä»¥çæç¸åçæ°å­ï¼å æ­¤éè¦åè¿æ¥éªè¯æ¯å¦æ¯æ¶ææ»å»
-			throw new Exception("appId " + appId + " is fake.");
+		if (!strVal.equals(long2String(num))) {
+			throw new Exception("strVal " + strVal + " is bad.");
 		}
 		if (num < 10000 || num > 10000000) {
-			throw new Exception("appId " + appId + " is fake.");
+			throw new Exception("strVal " + strVal + " is bad.");
 		}
 		return num;
 	}
